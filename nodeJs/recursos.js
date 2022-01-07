@@ -13,5 +13,17 @@ module.exports = {
         {nombre: "Andrea", apellido: "Acevedo",identificador:"1929293218"},
         {nombre: "Daniela", apellido: "Jimenes",identificador:"1232213777"},
         
+    ],
+    duenos: [
+        {nombre: "Alejandra", apellido: "Perez",identificador:"122323123"},
+        {nombre: "Alejandro", apellido: "Gomez",identificador:"1232112319999"},
+        {nombre: "Natalia", apellido: "Medina",identificador:"123231"},
+        {nombre: "Julio", apellido: "Acevedo",identificador:"1929293212318"},
+        {nombre: "Daniela", apellido: "Jimenes",identificador:"1232212313777"},
+        
+    ],
+    consultas: [
+        {mascota: 0,veterinarios: 0,fechaCreacion: new Date(),fechaEdicion: new Date(), historia:'', diagnostico:''}
+        
     ]
 }
