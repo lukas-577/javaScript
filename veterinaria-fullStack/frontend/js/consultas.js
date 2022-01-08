@@ -1,13 +1,15 @@
 const listaConsultas = document.getElementById("lista-consultas");
+const mascota = document.getElementById("mascota");
 
-const url = "http://localhost:5000/consultas";
+const url = "http://localhost:5000";
 let consultas =[];
+let mascotas = [];
 
 
 async function listarConsultas(){
     try {
-
-        const respuesta = await fetch(url);
+        const entidad = "consultas";
+        const respuesta = await fetch(`${url}/${entidad}`);
         const consultasDelServidor= await respuesta.json();
         if(Array.isArray(consultasDelServidor)){
             consultas = consultasDelServidor;
@@ -25,7 +27,6 @@ async function listarConsultas(){
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                         <button type="button" class="btn btn-warning editar"><i class="far fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger eliminar"><i class="far fa-trash-alt"></i></button>
                         </div></td>
                     </tr>`
             
@@ -39,3 +40,30 @@ async function listarConsultas(){
 }
 
 listarConsultas();
+
+async function listarMascotas(){
+    try {
+        const entidad = "mascotas";
+        const respuesta = await fetch(`${url}/${entidad}`);
+        const mascotasDelServidor= await respuesta.json();
+        if(Array.isArray(mascotasDelServidor)){
+            mascotas = mascotasDelServidor;
+        }
+        if(respuesta.ok){
+            const htmlMascota = mascotas
+            .forEach(
+                (_mascota,index)=>{
+                    const optionActual = document.createElement("option");
+                    optionActual.innerHTML =_mascota.nombre;
+                    optionActual.value = index;
+                    mascota.appendChild(optionActual);
+                }
+            );
+        }
+        
+    } catch (error) {
+        throw error;
+    }
+}
+
+listarMascotas();
