@@ -11,7 +11,7 @@ module.exports = {
     mascotas:mascotas(recursos.mascotas),
     veterinarios:veterinarios(recursos.veterinarios),
     duenos:duenos(recursos.duenos),
-    consultas:consultas(recursos.consultas),
+    consultas:consultas(recursos),
     noEncontrado: (data,callback)=>{
         callback(404,{mensaje:'no encontado'});
     }
